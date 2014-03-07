@@ -1,0 +1,52 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    </head>
+    <body>
+        <script>
+            function generateNumber(downLimit, upperLimit) {
+                var number = 0;
+                if (downLimit === 0) {
+                    number = Math.floor(Math.random() * (parseInt(upperLimit) + 1));
+                }
+                else if (downLimit === 1) {
+                    number = Math.floor((Math.random() * parseInt(upperLimit)) + 1);
+                }
+                else {
+                    number = downLimit + Math.floor(Math.random() * (parseInt(upperLimit) + 1));
+                }
+                return number;
+            }
+            function revealSubList(event) {
+                if (typeof this.getElementsByTagName('ul')[0] == 'undefined') {
+                    return;
+                }
+                if (this === event.target && this.getElementsByTagName('ul')[0].style.display == 'block') {
+                    this.getElementsByTagName('ul')[0].style.display = 'none';
+                } else {
+                    this.getElementsByTagName('ul')[0].style.display = 'block';
+                }
+            }
+            function generateList(name, elements) {
+                var list = document.createElement('ul');
+                for (var count = 0; count < elements; count++) {
+                    var item = document.createElement('li');
+                    item.innerHTML = name + ' item ' + count;
+                    item.addEventListener('click', revealSubList);
+                    list.appendChild(item);
+                }
+                return list;
+            }
+            var upperLimit = 10;
+            var mainListLength = generateNumber(1, upperLimit);
+            var mainList = generateList(' ', mainListLength);
+            var mainChildNodes = mainList.childNodes;
+            var subListLength = generateNumber(1, upperLimit);
+            var subList = generateList('sub', generateNumber(1, upperLimit));
+            var subChildNodes = subList.childNodes;
+            var subSubList = generateList('sub sub', generateNumber(1, upperLimit));
+            subChildNodes[generateNumber(0, subListLength - 1)].appendChild(subSubList);
+            mainChildNodes[generateNumber(0, mainListLength - 1)].appendChild(subList);
+            document.body.appendChild(mainList);
+        </script>
+    </body>
+</html>

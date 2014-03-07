@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function withinCircle(form) {
+                var x = form.x.value;
+                var y = form.y.value;
+                alert("The point is inside the circle: " + (x * x + y * y <= 25));
+                                        }
+        </script>
+    </head>
+    <body>
+       <p>06. Write an expression that checks if given print (x,  y) is within a circle K(O, 5).</p>
+        <form>
+            <input type="text" name="x" placeholder="X">
+            <input type="text" name="y" placeholder="Y">
+            <input type="submit" Value="Check!" onClick="withinCircle(this.form)">
+        </form>  
+    </body>
+</html>

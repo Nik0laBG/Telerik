@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function greatest() {
+                var a = parseInt(document.getElementById("number-field-greatest-a").value);
+                var b = parseInt(document.getElementById("number-field-greatest-b").value);
+                var c = parseInt(document.getElementById("number-field-greatest-c").value);
+                var d = parseInt(document.getElementById("number-field-greatest-d").value);
+                var e = parseInt(document.getElementById("number-field-greatest-e").value);
+                if ((a >= b) && (a >= c) && (a >= d) && (a >= e)) {
+                    document.getElementById("answer-greatest").innerHTML = (a + " is the biggest number");
+                }
+                else if ((b >= a) && (b >= c) && (b >= d) && (b >= e)) {
+                    document.getElementById("answer-greatest").innerHTML = (b + " is the biggest number");
+                }
+                else if ((c >= a) && (c >= b) && (c >= d) && (c >= e)) {
+                    document.getElementById("answer-greatest").innerHTML = (c + " is the biggest number");
+                }
+                else if ((d >= a) && (d >= b) && (d >= c) && (d >= e)) {
+                    document.getElementById("answer-greatest").innerHTML = (d + " is the biggest number");
+                }
+                else {
+                    document.getElementById("answer-greatest").innerHTML = (e + " is the biggest number");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>7.Write a script that finds the greatest of given 5 variables.</p>
+		<input type="text" name="number-field-greatest-a" id="number-field-greatest-a" value="" />a
+		<input type="text" name="number-field-greatest-b" id="number-field-greatest-b" value="" />b
+		<input type="text" name="number-field-greatest-c" id="number-field-greatest-c" value="" />c
+		<input type="text" name="number-field-greatest-d" id="number-field-greatest-d" value="" />d
+		<input type="text" name="number-field-greatest-e" id="number-field-greatest-e" value="" />e
+		<button onclick="greatest()">Check</button>
+		<p id="answer-greatest"></p>
+		</div>        
+    </body>
+</html>

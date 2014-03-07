@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+    <script>
+        if (!Object.create) {
+            Object.create = function (obj) {
+                function f() { };
+                f.prototype = obj;
+                return new f();
+            }
+        }
+        if (!Object.prototype.extend) {
+            Object.prototype.extend = function (properties) {
+                function f() { };
+                f.prototype = Object.create(this);
+                for (var prop in properties) {
+                    f.prototype[prop] = properties[prop];
+                }
+                f.prototype._super = this;
+                return new f();
+            }
+        }
+        var School = {
+            init: function (name, town, classes) {
+                this.name = name;
+                this.town = town;
+                this.classes = classes;
+            }
+        };
+
+        var Class = {
+            init: function (name, capacityOfStudents, setOfStudents, formTeacher) {
+                this.name = name;
+                this.capacityOfStudents = capacityOfStudents;
+                this.setOfStudents = setOfStudents;
+                this.formTeacher = formTeacher;
+            }
+        };
+
+        var Person = {
+            init: function (fname, lname, age) {
+                this.fname = fname;
+                this.lname = lname;
+                this.age = age;
+
+            },
+            introduce: function () {
+                var name = this.fname + " " + this.lname;
+                var age = this.age;
+
+                return "Name:" + name + ", age:" + age;
+            }
+        };
+
+        var Student = Person.extend({
+            init: function (fname, lname, age, grade) {
+                Person.init.call(this, fname, lname, age);
+                this.grade = grade;
+            },
+            introduce: function () {
+                return Person.introduce.apply(this) + ", grade:" + this.grade;
+            }
+        });
+
+        var Teacher = Person.extend({
+            init: function (fname, lname, age, speciality) {
+                Person.init.call(this, fname, lname, age);
+                this.speciality = speciality;
+            },
+            introduce: function () {
+                return Person.introduce.apply(this) + ", speciality:" + this.speciality;
+            }
+        });
+
+        var peter = Object.create(Student);
+        peter.init("Peter", "Mechkov", 18, 11);
+        var ivo = Object.create(Student);
+        ivo.init("Ivo", "Ivanov", 19, 11);
+        var joro = Object.create(Student);
+        joro.init("Georgi", "Petrov", 18, 11);
+        var mrEtkin = Object.create(Teacher);
+        mrEtkin.init("Etkin", "Vedat", 42, "math");
+
+        var elevenGrade = Object.create(Class);
+        elevenGrade.init("Petkova", 3, [ivo, joro, peter], mrEtkin);
+
+        var PMG = Object.create(School);
+        PMG.init("PMG", "Razgrad", [elevenGrade]);
+
+        console.log(PMG.name);
+        console.log(PMG.classes[0].setOfStudents[0].introduce());
+        console.log(PMG.classes[0].setOfStudents[1].introduce());
+        console.log(PMG.classes[0].setOfStudents[2].introduce());
+
+
+        var repository = function () {
+            function saveInRepository(key, objeckt) {
+                localStorage.setItem(key, JSON.stringify(objeckt));
+            }
+
+            function loadFromRepositori(key) {
+                var objeckt = JSON.parse(localStorage.getItem(key));
+
+                return objeckt;
+            }
+            return {
+                saveInRepository: saveInRepository,
+                loadFromRepository: loadFromRepositori
+            }
+        } ();
+
+        repository.saveInRepository("school", PMG);
+        var PMGCopy = repository.loadFromRepository("school");
+        console.log(PMGCopy.name);
+    </script>
+</body>
+</html>

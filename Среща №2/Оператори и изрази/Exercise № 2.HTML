@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function testResults(form) {
+                var number = form.number.value;
+                if (number % 7 == 0 && number % 5 == 0) {
+                    alert("It CAN be divided by 7 and 5");
+                                        }
+                else {
+                    alert("It CAN'T be divided by 7 and 5");
+                                                         }
+                     }
+        </script>
+    </head>
+    <body>
+       <p>02. Write a boolean expression that checks for given integer if it can be divided (without remainder) by 7 and 5 in the same time.</p>
+        <form>
+            <input type="text" name="number" placeholder="Enter a number here">
+            <input type="submit" Value="Check!" onClick="testResults(this.form)">
+        </form>
+    </body>
+</html>

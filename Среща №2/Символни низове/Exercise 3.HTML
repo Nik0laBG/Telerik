@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <link href="js-console.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h2>Input-a e v koda</h2>
+        <h3>
+        3.Write a JavaScript function that finds how many times a substring is contained in a given text (perform case insensitive search).
+        </h3>
+        <div id="js-console"></div>
+        <script src="js-console.js"></script>
+        <script>
+            //Input
+            var str = "We are living in an yellow submarine. We don't have anything else. Inside the submarine is very tight. So we are drinking all the day. We will move out of it in 5 days.";
+            //look for:
+            var lookFor = "in";
+            jsConsole.writeLine(CountWords(str, lookFor) + " times");
+            function CountWords(inputString, lookFor) {
+                var counter = 0;
+                var index = 0;
+                while (index != -1 && index < inputString.length) {
+                    index = inputString.toLowerCase().indexOf(lookFor, index);
+                    if (index != -1) {
+                        counter++;
+                        index += lookFor.length - 1;
+                    }
+                }
+                return counter;
+            }
+        </script>
+    </body>
+</html>

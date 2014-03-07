@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function insideCheck(form) {
+                var x = parseFloat(form.x.value);
+                var y = parseFloat(form.y.value);
+                var inCircle = (x - 1) * (x - 1) + (y - 1) * (y - 1) < 3 * 3;
+                var outRactangele = x < -1 || x > 5 || y > 1 || y < -1;
+                if (x != "" && y != "") {
+                    alert("It is iside the circle: " + inCircle + "\nIt is outside the rectangele: " + outRactangele);
+                                       }
+                                        }
+        </script>
+    </head>
+    <body>
+       <p>09. Write an expression that checks for given point (x, y) if it is within the circle K( (1,1), 3) and out of the rectangle R(top=1, left=-1, width=6, height=2).</p>
+        <form>
+            <input type="text" name="x" placeholder="x">
+            <input type="text" name="y" placeholder="y">
+            <input type="submit" Value="Check!" onClick="insideCheck(this.form)">
+        </form> 
+    </body>
+</html>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+            <link href="js-console.css" rel="stylesheet" />
+    </head>
+    <body>
+        <label for="text">Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe". </label>
+        <input id="text" type="text" class="js-console-input" />
+        <br />
+        <a href="#" class="js-console-btn" onclick="findPolindromes()">Find the palindromes!</a>
+        <br />
+        <br />
+        <div id="js-console"></div>
+        <script src="js-console.js"></script>
+        <script>
+            function findPolindromes() {
+                var strBuilder = buildStringBuilder();
+                var text = jsConsole.readString("#text");
+                text = text.toLowerCase();
+                text = text.replace(".", " ").replace("!", " ").replace("?", " ").replace(",", " ");
+                var wordsArr = text.split(" ");
+                for (var i = 0; i < wordsArr.length; i++) {
+                    strBuilder = buildStringBuilder();
+                    for (var j = wordsArr[i].length - 1; j >= 0; j--) {
+                        strBuilder.append(wordsArr[i][j]);
+                    }
+                    if (strBuilder.toString() == wordsArr[i]) {
+                        jsConsole.writeLine(wordsArr[i]);
+                    }
+                }
+            }
+            function buildStringBuilder() {
+                return {
+                    strs: [],
+                    len: 0,
+                    append: function (str) {
+                        this.strs[this.len++] = str;
+                        return this;
+                    },
+                    toString: function () {
+                        return this.strs.join("");
+                    }
+                };
+            }
+        </script>
+    </body>
+</html>

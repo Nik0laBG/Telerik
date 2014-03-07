@@ -1,0 +1,38 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+    <body>
+        <p>Number of divs:<input type="text" placeholder="1000" value="1000" min="1" max="9999999999" id="numberOfDivs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>First chose number of divs and press the button.</b></p>
+        <input type="button" value="Click me to generate divs!" onclick="createDivs();"/>
+        <script type="text/javascript">
+            function randomColor() {
+                var red = Math.floor(Math.random() * 255);
+                var green = Math.floor(Math.random() * 255);
+                var blue = Math.floor(Math.random() * 255);
+                return "rgb(" + red + "," + green + "," + blue + ")";}
+                function createDivs() {
+                var number = parseInt(document.getElementById("numberOfDivs").value);
+                for (var i = 0; i < number; i++) {
+                    var randomLeft = Math.floor(Math.random() * 850);
+                    var randomTop = Math.floor(Math.random() * (500 - 70) + 70);
+                    var randomWidth = Math.floor(Math.random() * (100 - 10) + 10);
+                    var randomHeight = Math.floor(Math.random() * (100 - 20) + 20);
+                    var randomBorderRadius = Math.floor(Math.random() * 100);
+                    var randomBorderWidth = Math.floor(Math.random() * (20 - 1) + 1);
+                    var div = document.createElement("div");
+                    div.innerHTML = "<strong>div</strong>";
+                    div.style.textAlign = "center";
+                    div.style.position = "absolute";
+                    div.style.top = randomTop + "px";
+                    div.style.left = randomLeft + "px";
+                    div.style.height = randomHeight + "px";
+                    div.style.width = randomWidth + "px";
+                    div.style.color = randomColor();
+                    div.style.borderRadius = randomBorderRadius + "px";
+                    div.style.border = randomBorderWidth + "px solid " + randomColor();
+                    div.style.backgroundColor = randomColor();
+                    document.body.appendChild(div);
+                }
+            }
+        </script>
+    </body>
+</html>

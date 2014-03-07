@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+            <link href="js-specialConsole.css" rel="stylesheet" />
+    </head>
+    <body>
+            <div id="inputdiv">
+                    <div class="input">
+                            <label for="tb-first">Type text to enter in console: </label>
+                            <input type="text" id="tb-first"/>
+                    </div>        
+                    <div id="inputbutton">
+                            <a href="#" onclick="onEnterButtonClick()">Click me to print it on console!</a>
+                    </div>
+            </div>
+            <div id="console">
+            </div>
+            <script src="js-specialConsole.js"> 
+            </script>
+            <script>
+                function onEnterButtonClick() {
+                    var input = specialConsole.read("#tb-first");
+                    specialConsole.writeLine("You entered: {0}", input);
+                }
+            </script>                          
+    </body>
+</html>

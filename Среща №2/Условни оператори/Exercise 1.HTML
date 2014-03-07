@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>    
+            function change() {
+                var a = document.getElementById("number-field-a").value;
+                var b = document.getElementById("number-field-b").value;
+			    if (a<b) {
+				     document.getElementById("answer").innerHTML=("a= " + (a=b) + "</br> b= " + (b=document.getElementById("number-field-a").value) );
+			             }
+			    else {
+				    document.getElementById("answer").innerHTML=("a= " + a + "</br> b= " + b);
+			         }
+                              };
+            </script>
+    </head>
+    <body>
+		    <div class="border">
+		    <p>1.Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.</p>
+		    <input type="text" name="number-field-a" id="number-field-a" value="" />a
+		    <input type="text" name="number-field-b" id="number-field-b" value="" />b
+		    <button onclick="change()">Click</button>
+		    <p id="answer"></p>
+		    </div>
+    </body>
+</html>

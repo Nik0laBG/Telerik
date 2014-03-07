@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            var arr = [{ firstname: "Nikolay", lastname: "Kostov", marks: "MVC: 6  ;  JavaScript: 5" },
+                { firstname: "Ivaylo", lastname: "Kendov", marks: "OOP: 4  ;  C#: 6" },
+                { firstname: "Svetlin", lastname: "Nakov", marks: "Unit Testing: 5  ;  WPF: 6" },
+                { firstname: "Asya", lastname: "Georgieva", marks: "Automation Testing: 6  ;  Manual Testing: 4"},
+                { firstname: "Georgi", lastname: "Georgiev", marks: "This student has no marks, yet"}];
+            var str = '';
+            for (var i = 0; i < arr.length; i++) {
+                str += '<tr>' +
+                    '<td>' + arr[i].firstname + '</td>' +
+                    '<td>' + arr[i].lastname + '</td>' +
+                    '<td>' + arr[i].marks + '</td>' +
+                    '</tr>';
+            }
+            var table = $('<table>' +
+                '<tr>' +
+                '<th>First Name</th>' +
+                '<th>Last Name</th>' +
+                '<th>Marks</th>' +
+                '</tr>' + str + '</table>');
+            var container = $('#wrapper');
+            container.append(table);
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper"></div>
+</body>
+</html>

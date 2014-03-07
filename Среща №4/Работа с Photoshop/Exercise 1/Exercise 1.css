@@ -1,0 +1,31 @@
+﻿body {
+    background:#404090;
+}
+button 
+{
+    background:none;
+    border:0;
+    cursor:pointer;
+}
+.left 
+{
+    float:left;
+    background: url("left.png");
+    width:22px;
+    height:47px;
+}
+.middle 
+{
+    font-size:17px;
+    line-height:47px;
+    padding:-8px 20px -8px 20px;
+    float:left;
+    background: url("middle.png") repeat-x;
+}
+.right 
+{
+    float:left;
+    background: url("right.png");
+    width:22px;
+    height:47px;
+}

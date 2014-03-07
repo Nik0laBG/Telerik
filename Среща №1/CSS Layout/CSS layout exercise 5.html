@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+    <head>
+    <!--znam che CSSa e vav filea, no ne mi ostana vreme da go mestq-->
+        <style>
+            body 
+            {
+                margin: 0 auto;
+                width: 860px;
+                font-family: sans-serif;
+            }
+
+            nav ul  
+            {
+                text-align: center; 
+            }
+            nav li 
+            { 
+                display: inline-block; 
+            }
+            nav a 
+            {
+                padding: 0 10px;
+                color: #1DB7F1;
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+
+            article, section 
+            { 
+                border: 1px solid #444; 
+            }
+
+            article 
+            {
+                position: relative;
+                overflow: hidden;
+                padding: 10px 224px 0 0;
+            }
+            article section 
+            {
+                float: left;
+                margin: 0 0 10px 10px;
+                padding: 10px 20px;
+                width: 265px;
+            }
+            article h2 
+            {
+                float: left;
+                margin-top: -0.85em;
+                padding: 0 7px;
+                background: #fff;
+            }
+            article ul 
+            {
+                float: right;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            article li 
+            {
+                margin-bottom: 10px;
+            }
+
+            aside 
+            {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 202px;
+                text-align: center;
+            }
+            aside dl, aside dt, aside dd 
+            { 
+                margin: 0; 
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <tr class="head">
+                <th class="header" colspan="2">
+                    <a href="http://apple.com">Apple</a>
+                    <a href="http://toshiba.com">Toshiba</a>
+                    <a href="http://lenovo.com">Lenovo</a>
+                    <a href="http://dell.com">Dell</a>
+                    <a href="http://asus.com">Asus</a>
+                    <a href="http://acer.com">Acer</a>
+                    <a href="http://hp.com">HP</a>
+                </th>
+            </tr>
+        </nav>
+        <hr />
+        <article>
+            <section>
+                <h2>Apple MacBook Air</h2>
+                <img src="img/macbook.jpg" width="173" height="101" alt="Apple MacBook Air" />
+                <ul>
+                    <li>64GB SSD</li>
+                    <li>2GB DDR</li>
+                    <li>Intel Core i5</li>
+                    <li>1300 USD</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Apple MacBook Air</h2>
+                <img src="img/macbook.jpg" width="173" height="101" alt="Apple MacBook Air" />
+                <ul>
+                    <li>64GB SSD</li>
+                    <li>2GB DDR</li>
+                    <li>Intel Core i5</li>
+                    <li>1300 USD</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Apple MacBook Air</h2>
+                <img src="img/macbook.jpg" width="173" height="101" alt="Apple MacBook Air" />
+                <ul>
+                    <li>64GB SSD</li>
+                    <li>2GB DDR</li>
+                    <li>Intel Core i5</li>
+                    <li>1300 USD</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Apple MacBook Air</h2>
+                <img src="img/macbook.jpg" width="173" height="101" alt="Apple MacBook Air" />
+                <ul>
+                    <li>64GB SSD</li>
+                    <li>2GB DDR</li>
+                    <li>Intel Core i5</li>
+                    <li>1300 USD</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Apple MacBook Air</h2>
+                <img src="img/macbook.jpg" width="173" height="101" alt="Apple MacBook Air" />
+                <ul>
+                    <li>64GB SSD</li>
+                    <li>2GB DDR</li>
+                    <li>Intel Core i5</li>
+                    <li>1300 USD</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Apple MacBook Air</h2>
+                <img src="img/macbook.jpg" width="173" height="101" alt="Apple MacBook Air" />
+                <ul>
+                    <li>64GB SSD</li>
+                    <li>2GB DDR</li>
+                    <li>Intel Core i5</li>
+                    <li>1300 USD</li>
+                </ul>
+            </section>
+            <aside>
+                <form>
+                <td>
+            <table class="sliders">
+                <tbody><tr>
+                    <td>
+                        <label for="min_price">Min price:</label>
+                    </td>
+                    <td>
+                        <span id="min_price_span">0</span>USD
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="range" id="min_price" min="0" max="1000" value="0" step="50" onchange="getElementById('min_price_span').innerHTML=this.value">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="max_price">Max price:</label>
+                    </td>
+                    <td>
+                        <span id="max_price_span">1000</span>USD
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="range" id="max_price" min="1000" max="5000" value="1000" step="50" onchange="getElementById('max_price_span').innerHTML=this.value">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="min_ram">Min RAM:</label>
+                    </td>
+                    <td>
+                        <span id="min_ram_span">0</span>GB
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="range" id="min_ram" min="0" max="8" value="0" step="1" onchange="getElementById('min_ram_span').innerHTML=this.value">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="max_ram">Max RAM:</label>
+                    </td>
+                    <td>
+                        <span id="max_ram_span">8</span>GB
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                            <input type="range" id="max_ram" min="8" max="32" value="8" step="1" onchange="getElementById('max_ram_span').innerHTML=this.value">
+                        </td>
+                    </tr>
+                </tbody></table>
+                </td> 
+                </form>
+            </aside>
+        </article>
+    </body>
+</html>

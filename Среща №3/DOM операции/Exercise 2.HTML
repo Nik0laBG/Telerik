@@ -1,0 +1,118 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script type="text/javascript"></script>
+    </head>
+    <body onload="generateDivs()" style="text-align:center;">
+        <div id="wrapper">
+            <a id="start-button" onclick="onStartButtonClick(event)"><u>Start</u></a><br /><br />
+            <a id="stop-button" onclick="onStopButtonClick(event)" disabled=""><u>Stop</u></a>
+        <script>
+            var requestId = null;
+            var count = 5;
+            var width = 50;
+            var height = 50;
+            var borderRadius = 30;
+            var centerTop = parseInt((screen.height - 300) / 2);
+            var centerLeft = parseInt((screen.width - 100) / 2);
+            var pathRadius = 120;
+            var degreesIncrement = 5;
+            var degrees = [];
+            window.requestAnimFrame = (function () {
+                return window.requestAnimationFrame ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame ||
+                    window.oRequestAnimationFrame ||
+                    window.msRequestAnimationFrame ||
+                    function (callback) {
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+            })();
+            window.cancelAnimFrame = (function () {
+                return window.cancelAnimationFrame ||
+                    window.webkitCancelAnimationFrame ||
+                    window.mozCancelAnimationFrame ||
+                    window.oCancelAnimationFrame ||
+                    window.msCancelAnimationFrame
+            })();
+            function moveClockwise(element, centerTop, centerLeft, radius, angleInDegrees) {
+                var theta = angleInDegrees * Math.PI / 180;
+                var left = parseInt(centerLeft + radius * Math.sin(theta));
+                element.style.left = left + "px";
+                var top = parseInt(centerTop - radius * Math.cos(theta));
+                element.style.top = top + "px";
+            }
+            function setElementStyle(element, width, height, borderRadius) {
+                element.style.width = width + "px";
+                element.style.height = height + "px";
+                element.style.backgroundColor = generateRandomColor();
+                element.style.position = "absolute";
+                var radiusInPixels = borderRadius + "px";
+                element.style.borderRadius = radiusInPixels;
+                element.style.MozBorderRadius = radiusInPixels;
+                element.style.WebkitBorderRadius = radiusInPixels
+            }
+            function generateDivs() {
+                var wrapper = document.getElementById("wrapper");
+                var initialDegrees = 0;
+                var degreesDifference = parseInt(360 / count);
+                for (var i = 0; i < count; i++) {
+                    var circle = document.createElement("div");
+                    circle.classList.add("circle");
+                    setElementStyle(circle, width, height, borderRadius);
+                    moveClockwise(circle, centerTop, centerLeft, pathRadius, initialDegrees);
+                    degrees.push(initialDegrees);
+                    initialDegrees += degreesDifference;
+                    wrapper.appendChild(circle);
+                }
+            }
+            function setDivsInMotion() {
+                var divs = document.getElementsByClassName("circle");
+                for (var i = 0, len = divs.length; i < len; i++) {
+                    degrees[i] += degreesIncrement;
+                    if (degrees[i] >= 360) {
+                        degrees[i] = degrees[i] % 360;
+                    }
+                    moveClockwise(divs[i], centerTop, centerLeft, pathRadius, degrees[i]);
+                }
+                requestId = window.requestAnimFrame(setDivsInMotion);
+            }
+            function onStartButtonClick(event) {
+                if (!event) event = window.event;
+                if (!requestId) {
+                    setDivsInMotion();
+                    document.getElementById("start-button").disabled = true;
+                    document.getElementById("stop-button").disabled = false;
+                }
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+                return false;
+            }
+            function onStopButtonClick(event) {
+                if (!event) event = window.event;
+                if (requestId) {
+                    window.cancelAnimFrame(requestId);
+                    document.getElementById("start-button").disabled = false;
+                    document.getElementById("stop-button").disabled = true;
+                    requestId = null;
+                }
+                if (event.preventDefault) {
+                    event.preventDefault();
+                }
+                return false;
+            }
+        </script>
+        <script src="http://htmlpreview.github.io/htmlpreview.min.js"></script><script>
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                function generateRandomColor() {
+                    var red = getRandomInt(0, 255);
+                    var green = getRandomInt(0, 255);
+                    var blue = getRandomInt(0, 255);
+                    return "rgb(" + red + ", " + green + ", " + blue + ")";
+                }
+        </script>
+      </div>
+    </body>
+</html>

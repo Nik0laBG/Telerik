@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+        <head>
+                <title>tankgame</title>
+                <style>
+                   canvas {
+                        border:5px solid #2C2C2B;
+                    }
+                    body
+                    {
+                        margin-top:0px;
+                        margin-bottom:0px;
+                        margin-right:0px;
+                        margin-left:0px;
+                        padding-top:0px;
+                        padding-bottom:0px;
+                        padding-right:0px;
+                        padding-left:0px;
+                    }
+                </style>
+                <img src="KupolaNaTanka.png" id="Kupola" width="0px" height="0px">
+        </head>
+        <body background="http://bgfons.com/upload/camouflage_texture782.jpg">
+
+                <canvas id="screen" width="1000px" height="600px">
+                </canvas>
+                <script type="text/javascript">
+                    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+                    var canvas = document.getElementById("screen");
+                    var ctx = canvas.getContext("2d");
+                    function Tank(x, y, width, height, speed, cornerRadius) {
+                        this.x = x;
+                        this.y = y;
+                        width = 200;
+                        height = 120;
+                        speed = 5;
+                        this.draw = function (ctx) {
+
+                            //tumno zeleno
+                            //tqloto na tanka
+                            ctx.fillStyle = "#25732B";
+                            ctx.fillRect(this.x, this.y, width, height);
+                            ctx.stroke();
+                            ctx.beginPath();
+
+                            //kupola
+                            //nqkvo zeleno
+                            ctx.fillStyle = "#4FA859";
+                            ctx.arc(this.x + width / 2.5, this.y + height / 2, 40, 0, 360);
+                            ctx.stroke();
+                            ctx.closePath();
+                            ctx.fill();
+
+                            //po-tumno zeleno, kum sivo
+                            //duloto
+                            ctx.fillStyle = "#37624A";
+                            ctx.fillRect(this.x + width / 2.5 + 40, this.y + height / 2 - 10, width - 50, 20);
+                            ctx.stroke();
+                        };
+                        this.shoot = function (ctx, bx, by) {
+                            var bx = this.x + width / 2.5 + 40;
+                            var by = this.y + height / 2 - 5;
+                            ctx.fillRect(this.bx, this.by, 20, 10);
+                            ctx.beginPath();
+                            ctx.arc(this.bx + 20, this.by + 5, 5, 0, 180);
+                            ctx.stroke();
+
+                        }
+
+                        this.move = function (e) {
+
+                            var key = e.keyCode;
+                            if (this.y >= speed && key == 38) {
+                                this.y -= speed;
+                            }
+                            else if (this.y <= (canvas.height - height) - speed && key == 40) {
+                                this.y += speed;
+                            }
+
+
+                        };
+                    }
+                    window.addEventListener("keydown", getKeyCode, false);
+                    function getKeyCode(e) {
+                        console.log(e);
+                        if (e != undefined) {
+                            if (e.keyCode != null) {
+                                if (e.keyCode == 38 || e.keyCode == 40) {
+                                    player.move(e);
+                                }
+                                else if (e.keyCode == 32) {
+                                    player.shoot(ctx, player.x + player.width / 2.5 + 40, player.y + player.height / 2 - 5);
+                                }
+                            };
+                        };
+
+                    };
+                    var player = new Tank(5, canvas.height / 2);
+                    function animation() {
+                        ctx.clearRect(0, 0, 1000, 600);
+                        player.draw(ctx);
+                        getKeyCode();
+                        requestAnimationFrame(animation);
+                    }
+                    requestAnimationFrame(animation);
+                        
+                </script>
+        </body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function check() {
+                var a = parseInt(document.getElementById("number-field-biggest-a").value);
+                var b = parseInt(document.getElementById("number-field-biggest-b").value);
+                var c = parseInt(document.getElementById("number-field-biggest-c").value);
+                if (a > b) {
+                    if (a > c) {
+                        document.getElementById("answer-biggest").innerHTML = (a);
+                    }
+                    else if (a == c) {
+                        document.getElementById("answer-biggest").innerHTML = ("A and C are equal and biggest numbers");
+                    }
+                    else {
+                        document.getElementById("answer-biggest").innerHTML = (c);
+                    }
+                }
+                else if (b > a) {
+                    if (b > c) {
+                        document.getElementById("answer-biggest").innerHTML = (b);
+                    }
+                    else if (b == c) {
+                        document.getElementById("answer-biggest").innerHTML = ("B and C are equal and biggest numbers");
+                    }
+                    else {
+                        document.getElementById("answer-biggest").innerHTML = (c);
+                    }
+                }
+                else if (c > a) {
+                    if (c > b) {
+                        document.getElementById("answer-biggest").innerHTML = (c);
+                    }
+                    else {
+                        document.getElementById("answer-biggest").innerHTML = (b);
+                    }
+                }
+                else if (a == b && a > c) {
+                    document.getElementById("answer-biggest").innerHTML = ("A and B are equal and biggest numbers");
+                }
+                else {
+                    document.getElementById("answer-biggest").innerHTML = ("The number are equal");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>3.Write a script that finds the biggest of three integers.</p>
+		<input type="text" name="number-field-biggest-a" id="number-field-biggest-a" value="" />a
+		<input type="text" name="number-field-biggest-b" id="number-field-biggest-b" value="" />b
+		<input type="text" name="number-field-biggest-c" id="number-field-biggest-c" value="" />c
+		<button onclick="check()">Check</button>
+		<p id="answer-biggest"></p>
+		</div>
+    </body>
+</html>

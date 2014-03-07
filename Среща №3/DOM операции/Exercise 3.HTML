@@ -1,0 +1,31 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <style>
+            input
+            {
+                display:block;
+            }
+            #area
+            {
+                width:150px;
+                height:150px;
+            }
+        </style>
+    </head>
+    <body>
+        Font Color:
+        <input type="color" name="font" onchange="setFontColor()" />
+        Background Color:
+        <input type="color" name="background" onchange="setBackground()" />
+        <span><textarea id="area" cols="20" name="S1" rows="1"></textarea></span>
+        <script>
+            var textarea = document.getElementsByTagName('textarea')[0];
+            function setBackground() {
+                return textarea.style.backgroundColor = document.getElementsByName('background')[0].value;
+            }
+            function setFontColor() {
+                return textarea.style.color = document.getElementsByName('font')[0].value;
+            }
+        </script>
+    </body>
+</html>

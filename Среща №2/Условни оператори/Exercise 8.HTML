@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function toText() {
+                var number = parseInt(document.getElementById("number-field-toText").value);
+                var dg = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+                var tn = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+                var tw = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+                var num = number;
+                num = num.toString();
+                var array1 = num.split("");
+                var arrLen = array1.length;
+                if ((number < 0) || (number > 999)) {
+                    document.getElementById("answer-toText").innerHTML = ("please enter number in that range [0 to 999]");
+                }
+                else if (arrLen == 1) {
+                    if (array1[0] == "0") {
+                        document.getElementById("answer-toText").innerHTML = ("zero");
+                    }
+                    else {
+                        document.getElementById("answer-toText").innerHTML = (dg[array1[0]]);
+                    }
+                }
+                else if (arrLen == 2) {
+                    if (array1[0] == 1) {
+                        document.getElementById("answer-toText").innerHTML = (tn[array1[1]]);
+                    }
+                    else if ((array1[0] >= 2) && (array1[0] <= 9)) {
+                        document.getElementById("answer-toText").innerHTML = (tw[array1[0]] + " " + dg[array1[1]]);
+                    }
+                }
+                else if (arrLen == 3) {
+
+                    if ((array1[1] == 0) && (array1[2] == 0)) {
+                        document.getElementById("answer-toText").innerHTML = (dg[array1[0]] + " hundred ");
+                    }
+                    else if ((array1[1] == 0) && (array1[2] > 0)) {
+                        document.getElementById("answer-toText").innerHTML = (dg[array1[0]] + " hundred " + dg[array1[2]]);
+                    }
+                    else if (array1[1] == 1) {
+                        document.getElementById("answer-toText").innerHTML = (dg[array1[0]] + " hundred " + tn[array1[2]]);
+                    }
+                    else if ((array1[1] >= 2) && (array1[1] <= 9)) {
+                        document.getElementById("answer-toText").innerHTML = (dg[array1[0]] + " hundred " + tw[array1[1]] + " " + dg[array1[2]]);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>10.Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation.</p>
+		<input type="text" name="number-field-toText" id="number-field-toText" value="" />
+		<button onclick="toText()">Check</button>
+		<p id="answer-toText"></p>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function print(outputId, text) {
+                var answer = document.getElementById(outputId);
+                answer.innerHTML = text;
+            }
+            function getNum() {
+                var number = parseInt(document.getElementById("number-field").value);
+                var msg = "";
+                for (var i = 1; i <= number; i++) {
+                    msg = msg + i + "</br>"
+                }
+                print("answer", msg);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>1. Write a script that prints all the numbers from 1 to N.</p>
+		<input type="text" name="number-field" id="number-field" value="" />
+		<button onclick="getNum()">Click</button>
+		<p id="answer"></p>
+		</div>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function order(a, b, c) {
+                var a = parseInt(document.getElementById("number-field-order-a").value);
+                var b = parseInt(document.getElementById("number-field-order-b").value);
+                var c = parseInt(document.getElementById("number-field-order-c").value);
+                var min;
+                var mid;
+                var max;
+                if (a >= b) {
+                    if (a >= c) {
+                        max = a;
+                        if (b >= c) {
+                            mid = b;
+                            min = c
+                        }
+                        else {
+                            mid = c;
+                            min = b;
+                        }
+                    }
+                }
+                else if (b >= c) {
+                    max = b;
+                    if (c >= a) {
+                        mid = c;
+                        min = a;
+                    }
+                    else {
+                        mid = a;
+                        min = c;
+                    }
+                }
+                else {
+                    max = c;
+                    if (b >= a) {
+                        mid = b;
+                        min = a;
+                    }
+                    else {
+                        mid = a;
+                        min = b;
+                    }
+                };
+                document.getElementById("answer-order").innerHTML = (min + "," + mid + "," + max);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>4.Sort 3 real values in descending order.</p>
+		<input type="text" name="number-field-order" id="number-field-order-a" value="" />
+		<input type="text" name="number-field-order" id="number-field-order-b" value="" />
+		<input type="text" name="number-field-order" id="number-field-order-c" value="" />
+		<button onclick="order()">Check</button>
+		<p id="answer-order"></p>
+		</div>
+    </body>
+</html>

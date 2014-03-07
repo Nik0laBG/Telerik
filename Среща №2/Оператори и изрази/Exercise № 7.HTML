@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function primeNumber(form) {
+                var number = form.number.value;
+                var isPrime = true;
+                if (number > 2) {
+                    for (var i = 2; i < number; i++) {
+                        if (number % i == 0) {
+                            isPrime = false;
+                                }
+                                                      }
+                                             }
+                else {
+                    alert("Number is not prime!");
+                     }
+
+                if (isPrime == true) {
+                    alert("Number is prime!");
+                                     }
+                else {
+                    alert("Number is not prime!");
+                     }
+                                      }
+        </script>
+    </head>
+    <body>
+       <p>07. Write an expression that checks if given positive integer number n (n ≤ 100) is prime. E.g. 37 is prime.</p>
+        <form>
+            <input type="text" name="number" placeholder="Enter a number">
+            <input type="submit" Value="Check!" onClick="primeNumber(this.form)">
+        </form>  
+    </body>
+</html>

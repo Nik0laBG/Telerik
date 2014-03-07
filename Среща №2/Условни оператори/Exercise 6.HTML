@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function math() {
+                var a = parseInt(document.getElementById("number-field-math-a").value);
+                var b = parseInt(document.getElementById("number-field-math-b").value);
+                var c = parseInt(document.getElementById("number-field-math-c").value);
+                var d = Math.sqrt(b * b - (4 * a * c));
+                var x1;
+                var x2;
+                if (d == 0) {
+                    x1 = -b / 2 * a;
+                    x2 = x1;
+                    document.getElementById("answer-math").innerHTML = ("x1= " + x1 + " and x2= " + x2);
+                }
+                else if (d > 0) {
+                    x1 = (-b + d) / 2 * a;
+                    x2 = (-b - d) / 2 * a;
+                    document.getElementById("answer-math").innerHTML = (x1 + x2);
+                }
+                else if (d < 0) {
+                    document.getElementById("answer-math").innerHTML = ("nqma realni koreni");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>6.Write a script that enters the coefficients a, b and c of a quadratic equation.</p>
+		<input type="text" name="number-field-a" id="number-field-math-a" value="" />a
+		<input type="text" name="number-field-b" id="number-field-math-b" value="" />b
+		<input type="text" name="number-field-c" id="number-field-math-c" value="" />c
+		<button onclick="math()">Check</button>
+		<p id="answer-math"></p>
+		</div>
+    </body>
+</html>

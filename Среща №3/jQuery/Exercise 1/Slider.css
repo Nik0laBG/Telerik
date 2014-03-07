@@ -1,0 +1,43 @@
+#container 
+{
+    margin-left: auto ;
+    margin-right: auto ;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.hidden 
+{
+    display: none;
+}
+.slider 
+{
+    width: 300px;
+    height: 300px;
+}
+#previus 
+{
+    position: absolute;
+    top: 200px;
+    left: 0px;
+}
+#next 
+{
+    position: absolute;
+    top: 200px;
+    left: 470px;
+}
+body 
+{
+    text-align: center;
+    margin-left: auto ; 
+    margin-right: auto ;
+    background-color:#999;
+}
+div
+{
+  margin-left: auto ;
+  margin-right: auto ;
+}

@@ -1,0 +1,35 @@
+﻿a 
+{
+    color: #a7162e; 
+    text-decoration:none;
+    font-weight:bold;
+    font-family: Arial;
+    font-size:13px;
+}
+ ul li 
+ {
+    display: inline-block;
+    background: url(menu_background.png) repeat-x;
+    border: none;
+    padding: 15px 25px;
+    margin:-2px;
+    border-right: 1px solid #bdbdbd;
+}
+#start 
+{
+    width:10px;
+    width: 10px;
+    padding-left:0px;
+    padding-right:0px;
+    margin:-8px;
+    background: url(start.png)
+}
+#end 
+{
+    width:10px;
+    width: 10px;
+    padding-left:0px;
+    padding-right:0px;
+    margin:-8px;
+    background: url(end.png);
+}

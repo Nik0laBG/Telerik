@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function calculateArea(form) {
+                var width = form.width.value;
+                var height = form.height.value
+                alert("The area is: " + width * height);
+                                         }
+        </script>
+    </head>
+    <body>
+       <p>03. Write an expression that calculates rectangle's area by given width and height.</p>
+        <form>
+            <input type="text" name="width" placeholder="Enter a width ">
+            <input type="text" name="height" placeholder="Enter a height ">
+            <input type="submit" Value="Check!" onClick="calculateArea(this.form)">
+        </form>
+    </body>
+</html>

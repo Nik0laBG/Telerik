@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+            <link href="js-console.css" rel="stylesheet" />
+    </head>
+    <body>
+        <input id="url" type="text" class="js-console-input" size=90 placeholder="Enter a URL adress in format http://www.devbg.org/forum/index.php!" />
+        <br /><br />
+        <a href="#" class="js-console-btn" onclick="parseURL()">Parse the URL and print it!</a>
+        <br /><br />
+        <div id="js-console"></div>
+        <script src="js-console.js"></script>
+        <script>
+            function parseURL() {
+                var url = jsConsole.readString("#url");
+                jsConsole.writeLine(url);
+                var protokol = url.substring(0, url.indexOf(":"));
+                var server = url.substring(url.indexOf(":") + 3, url.indexOf("/", url.indexOf(":") + 3));
+                var resource = url.substr(url.indexOf("/", url.indexOf(":") + 3) + 1)
+                var URLJSON = { "Protokol": protokol, "Server": server, "Resource": resource };
+                jsConsole.writeLine("Protokol :" + URLJSON.Protokol);
+                jsConsole.writeLine("Server :" + URLJSON.Server);
+                jsConsole.writeLine("Resource :" + URLJSON.Resource);
+            }
+        </script>
+    </body>
+</html>

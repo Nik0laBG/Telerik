@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function sign() {
+                var a = parseInt(document.getElementById("number-field-sign-a").value);
+                var b = parseInt(document.getElementById("number-field-sign-b").value);
+                var c = parseInt(document.getElementById("number-field-sign-c").value);
+                if (a > 0 && b > 0 && c > 0) {
+                    document.getElementById("answer-sign").innerHTML = ("+");
+                                             }
+                else if (a < 0 && b < 0 && c > 0 || c < 0 && b < 0 && a > 0 || a < 0 && c < 0 && b > 0) {
+                    document.getElementById("answer-sign").innerHTML = ("+");
+                                                                                                        }
+                else if (a < 0 && b != 0 && c != 0 || b < 0 && a != 0 && c != 0 || c < 0 && a != 0 && b != 0) {
+                    document.getElementById("answer-sign").innerHTML = ("-");
+                                                                                                              }
+
+                else if (a < 0 && b < 0 && c < 0) {
+                    document.getElementById("answer-sign").innerHTML = ("-");
+                                                  }
+                else {
+                    document.getElementById("answer-sign").innerHTML = ("0");
+                     }
+                            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		    <p>2.Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it.</p>
+		    <input type="text" name="number-sign" id="number-field-sign-a" value="" />
+		    <input type="text" name="number-sign" id="number-field-sign-b" value="" />
+		    <input type="text" name="number-sign" id="number-field-sign-c" value="" />
+		    <button onclick="sign()">Check</button>
+		    <p id="answer-sign"></p>
+		    </div>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function checkDigit(form) {
+                var number = form.number.value;
+                number = parseInt(number / 100);
+                alert("The 3th digit is 7: " + (number % 10 === 7));
+                                      }
+        </script>
+    </head>
+    <body>
+       <p>04. Write an expression that checks for given integer if its third digit (right-to-left) is 7. E. g. 1732 > true.</p>
+        <form>
+            <input type="text" name="number" placeholder="Enter a number here">
+            <input type="submit" Value="Check!" onClick="checkDigit(this.form)">
+        </form>
+    </body>
+</html>

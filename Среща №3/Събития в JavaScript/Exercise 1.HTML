@@ -1,0 +1,110 @@
+﻿<html>
+    <head>
+        <style type="text/css">
+            body 
+            {
+                font-family: Times New Roman;
+            }
+            h1 
+            {
+                margin: 0 0 10px 0;
+            }
+            button 
+            {
+                border-radius: 40px;
+                padding-left: 3px;
+                margin-bottom: 10px;
+            }
+            p 
+            {
+                font-size: 1.2em;
+                margin: 0 0 5px 0;
+            }
+            #wrapper 
+            {
+                text-align: center ;
+                margin-left: auto ;
+                margin-right: auto ;
+                margin-top: auto ;
+                margin-bottom: auto ;
+                border: 1px solid black;
+                padding: 20px;
+                width: 250px;
+                border-radius: 75px;
+            }
+            textarea 
+            { 
+                resize:vertical; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+                <h1>TODO List</h1>
+            <div id="container">  
+            <textarea rows="5" cols="28" id="item" autofocus placeholder="Type text for next note here."></textarea>
+                <div>
+                    <button id="addButton">Add Item</button>
+                    <button id="removeButton">Remove Items</button> 
+                </div> 
+                <div>
+                    <button id="hideButton">Hide Items</button>
+                    <button id="showButton">Show Hidden</button> 
+                </div>   
+            </div>
+        </div>
+        <script type="text/javascript">
+            var addButton = document.getElementById("addButton");
+            var removeButton = document.getElementById("removeButton");
+            var hideButton = document.getElementById("hideButton");
+            var showButton = document.getElementById("showButton");
+            var container = document.getElementById("container");
+            function addItem() {
+                var item = document.getElementById("item").value;
+                document.getElementById("item").value = "";
+                if (item == "" || item == null) {
+                    alert("Cannot add an emtpy note!");
+                    return;
+                };
+                var checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = "checkbox";
+                var label = document.createElement("label");
+                label.style.display = "block";
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(item));
+                container.appendChild(label);
+                event.target.item = '';
+            }
+            function removeItems() {
+                var allCheckBoxes = document.querySelectorAll("input[type=checkbox]");
+                for (var i = 0; i < allCheckBoxes.length; i++) {
+                    if (allCheckBoxes[i].checked && allCheckBoxes[i].parentNode.style.display == "block") {
+                        var label = allCheckBoxes[i].parentNode;
+                        label.parentNode.removeChild(label);
+                    };
+                };
+            }
+            function hideItems() {
+                var allCheckBoxes = document.querySelectorAll("input[type=checkbox]");
+                for (var i = 0; i < allCheckBoxes.length; i++) {
+                    if (allCheckBoxes[i].checked) {
+                        allCheckBoxes[i].parentNode.style.display = "none";
+                    };
+                };
+            }
+            function showHiddenItems() {
+                var allCheckBoxes = document.querySelectorAll("input[type=checkbox]");
+                for (var i = 0; i < allCheckBoxes.length; i++) {
+                    if (allCheckBoxes[i].parentNode.style.display == "none") {
+                        allCheckBoxes[i].parentNode.style.display = "block";
+                    };
+                };
+            }
+            addButton.addEventListener("click", addItem, false);
+            removeButton.addEventListener("click", removeItems, false);
+            hideButton.addEventListener("click", hideItems, false);
+            showButton.addEventListener("click", showHiddenItems, false);
+        </script>
+    </body>
+</html>

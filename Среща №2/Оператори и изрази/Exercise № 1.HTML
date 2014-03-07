@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script language="JavaScript">
+            function testResults(form) {
+                var number = form.number.value;
+                if (number != "") {
+                    if (number % 2 != 0) {
+                        alert(number + " is odd");
+                                        }
+                    else {
+                        alert(number + " is prime");
+                                    }
+                                          }
+                         }
+        </script>
+    </head>
+    <body>
+       <p>01. Write an expression that checks if given integer is odd or even.</p>
+        <form>
+            <input type="text" name="number" placeholder="Enter a number here">
+            <input type="submit" Value="Check!" onClick="testResults(this.form)">
+        </form>
+    </body>
+</html>

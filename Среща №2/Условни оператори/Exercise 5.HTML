@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function digitname() {
+                var number = parseInt(document.getElementById("number-field-switch").value);
+                console.log(number);
+                var msg = "";
+                switch (number) {
+                    case 0: msg = "Zero"; break;
+                    case 1: msg = "One"; break;
+                    case 2: msg = "Two"; break;
+                    case 3: msg = "Three"; break;
+                    case 4: msg = "Four"; break;
+                    case 5: msg = "Five"; break;
+                    case 6: msg = "Six"; break;
+                    case 7: msg = "Seven"; break;
+                    case 8: msg = "Eight"; break;
+                    case 9: msg = "Nine"; break;
+                    case 10: msg = "Ten"; break;
+                    case 11: msg = "Eleven"; break;
+                    case 12: msg = "Twelve"; break;
+                    case 13: msg = "Thirteen"; break;
+                    case 14: msg = "Fourteen"; break;
+                    case 15: msg = "Fifteen"; break;
+                    case 16: msg = "Sixteen"; break;
+                    case 17: msg = "Seventeen"; break;
+                    case 18: msg = "Eighteen"; break;
+                    case 19: msg = "Nineteen"; break;
+                    case 20: msg = "Twenty"; break;
+                    default: msg = "Type numbers 0 to 20";
+                }
+                document.getElementById("answer-switch").innerHTML = (msg);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>5.Write script that asks for a digit and depending on the input shows the name of that digit (in English).</p>
+		<input type="text" name="number-field-switch" id="number-field-switch" value="" />
+		<button onclick="digitname()">Check</button>
+		<p id="answer-switch"></p>
+		</div>
+    </body>
+</html>

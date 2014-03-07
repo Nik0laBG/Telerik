@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script src="JQuery.js"></script>
+        <link href="Slider.css" rel="stylesheet" />
+    </head>
+    <body>
+    <span>Ne e mnogo hubavo ama kolkoto tolkova!<br />Nqma vreme za poveche!</span>
+        <a href="#" id="previus" class="button"><</a>
+        <div id="container">
+            <div class="current slider">
+                <h1>Telerik</h1>
+                <a href="http://www.telerik.com/">Link to Telerik's site</a>
+            </div>
+            <img src="image1.jpg" class="hidden slider" />
+            <img src="image2.jpg" class="hidden slider" />
+        </div>
+        <a href="#" id="next" class="button">></a>
+        <script>
+            var nextInterval = 0;
+            var nextTimeOut = 0;
+            var nextButton = $("#next");
+            goNext();
+            function goNext() {
+                clearInterval(nextInterval);
+                clearTimeout(nextTimeOut);
+                nextInterval = setInterval(function () {
+                    var currentElement = $(".current");
+                    var nextElement = currentElement.first().next();
+                    if (!nextElement.hasClass("slider")) {
+                        nextElement = $(".slider").first();
+                    }
+                    currentElement.removeClass("hidden");
+                    currentElement.removeClass("current");
+                    nextElement.addClass("current");
+                    nextElement.removeClass("hidden");
+                    nextElement.css("display", "none");
+                    currentElement.fadeOut(1000);
+                    nextTimeOut = setTimeout(function () {
+                        nextElement.fadeIn(1000);
+                    }, 1000);
+                }, 5000);
+            };
+            nextButton.on("click", function () {
+                clearInterval(nextInterval);
+                clearTimeout(nextTimeOut);
+                $(".slider").hide();
+                var currentElement = $(".current");
+                var nextElement = currentElement.first().next();
+                if (!nextElement.hasClass("slider")) {
+                    nextElement = $(".slider").first();
+                }
+                currentElement.removeClass("current");
+                nextElement.removeClass("hidden");
+                nextElement.addClass("current");
+                nextElement.show();
+                goNext();
+            });
+            var previusButton = $("#previus");
+            previusButton.on("click", function () {
+                clearInterval(nextInterval);
+                clearTimeout(nextTimeOut);
+                var currentElement = $(".current");
+                var previusElement = currentElement.prev();
+                if (!previusElement.hasClass("slider")) {
+                    previusElement = $(".slider").last();
+                }
+                if (currentElement.css("display") == "none") {
+                    previusElement = previusElement.prev();
+                    if (!previusElement.hasClass("slider")) {
+                        previusElement = $(".slider").last();
+                    }
+                }
+                currentElement.removeClass("current");
+                previusElement.removeClass("hidden");
+                previusElement.addClass("current");
+                $(".slider").hide();
+                previusElement.show();
+                goNext();
+            });
+        </script>
+    </body>
+</html>

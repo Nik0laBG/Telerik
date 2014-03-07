@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function print(outputId, text) {
+                var answer = document.getElementById(outputId);
+                answer.innerHTML = text;
+            }
+		    function devide() {
+			    var number = parseInt(document.getElementById("number-field-devide").value);
+			    var msg = "";
+			    for (var i=1; i<=number; i++){
+				    if (i%(3*7)!==0 ){
+					    msg = msg + i + ", ";
+				    }
+				    print("answer-devide",msg);
+			    }
+		    }
+            </script>
+    </head>
+    <body>
+		<div class="border">
+		<p>2. Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time.</p>
+		<input type="text" name="number-devide" id="number-field-devide" value="" />
+		<button onclick="devide()">Check</button>
+		<p id="answer-devide"></p>
+		</div>
+    </body>
+</html>

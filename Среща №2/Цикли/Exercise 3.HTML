@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function print(outputId, text) {
+                var answer = document.getElementById(outputId);
+                answer.innerHTML = text;
+            }
+            function findNum() {
+                var nStr = document.getElementById("number-field-findNum").value;
+                var numbers = nStr.split(",");
+                console.log(numbers);
+                var max = numbers[0];
+                var min = numbers[0];
+                for (var i = 0; i < numbers.length; i++) {
+                    if (max < parseInt(numbers[i])) {
+                        max = numbers[i];
+                    }
+                    if (min > parseInt(numbers[i])) {
+                        min = numbers[i];
+                    }
+                }
+                console.log(max);
+                print("answer-findNum", min + " - min<br />" + max + " - max<br />");
+            }
+        </script>
+    </head>
+    <body>
+        <div class="border">
+		<p>3. Write a script that finds the max and min number from a sequence of numbers. Examples: type into input field "1,33,155,7,12"</p>
+		<input type="text" name="number-field-findNum" id="number-field-findNum" value="" />a
+		<button onclick="findNum()">Check</button>
+		<p id="answer-findNum"></p>
+		</div>
+    </body>
+</html>

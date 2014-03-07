@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <p>Write a JavaScript function reverses string and returns it.</p>
+        <p>Example: "sample" -> "elpmas".</p>
+	    <label for="tb-string">String: </label>
+	    <input id="tb-string" type="text" class="js-console-input" />
+	    <a href="#" class="js-console-btn" onclick="onReverseStringBtnClick()">Reverse String</a>
+	    <div id="js-console"></div>
+	    <script src="js-console.js"></script>
+	        <script>
+	        function onReverseStringBtnClick() {
+	            var string = jsConsole.read("#tb-string");
+	            var length = string.length;
+	            var reversed = new Array(length);
+	            for (var index = 0; index < length; index++) {
+	                reversed[length - index - 1] = string[index];
+	            }
+	            jsConsole.writeLine(reversed.join(""));
+	        }
+	        </script>
+		</div>
+    </body>
+</html>
